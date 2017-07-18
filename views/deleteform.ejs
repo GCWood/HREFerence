@@ -1,0 +1,16 @@
+<% include partials/hacheader %>
+<h1>Sup</h1>
+<% post.forEach(function(post){ %>
+    <div class="col-sm-6 col-md-4">
+        <form action="/hacking?_override=DELETE" method="POST">
+            <input type="checkbox" name="post">
+                <label for="post">
+                    <div class="thumbnail">
+                        <h1><%= post.title %></h1>
+                        <p><%= post.description %></p>
+                    </div>
+                </label>
+        </form>
+    </div>
+<% }) %>
+<% include partials/footer %>
