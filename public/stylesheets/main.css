@@ -2,3 +2,9 @@
     background-color: black;
     border-color: #030033;
 }
+.delete-form{
+    display: inline;
+}
+body{
+    background: black;
+}

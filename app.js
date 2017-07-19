@@ -27,17 +27,24 @@ app.get("/programming", function(req,res){
     res.render("programming");
 });
 //test route
-app.get("/test", function(req,res){
-    res.render("test");
-});
-app.post("/test", function(req,res){
-    console.log(req.body);
-    res.render("showtest");
-});
+// app.get("/test", function(req,res){
+//     res.render("test");
+// });
+// app.post("/test", function(req,res){
+//     console.log(req.body.post);
+//     res.render("showtest");
+// });
 
 
 
-
+/* { 
+post: 
+    [ 
+    '596e48d3b859fa2acfa4a367', 
+    '596e49e7b859fa2acfa4a368' 
+    ]
+}
+*/
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("HREFerence has started");
 })

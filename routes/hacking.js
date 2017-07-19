@@ -12,9 +12,17 @@ router.get("/", function(req,res){
         }
     });
 });
-router.get("/delete", function(req,res){
-    res.render("deleteform");
-});
+// //DELETE FORM
+// router.get("/delete", function(req,res){
+//     hposts.find({}, function(err, posts){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             res.render("deleteform", {post: posts});            
+//         }
+//     });
+
+// });
 //CREATE PAGE ROUTE
 router.get("/add", function(req,res){
     res.render("add");

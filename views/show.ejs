@@ -1,5 +1,8 @@
 <% include partials/hacheader %>
     <h1><%= post.title %></h1>
     <p><%= post.description %></p>
-    <a href="/hacking/<%=post._id%>/edit">Edit</a>
+    <a href="/hacking/<%=post._id%>/edit" class="btn btn-warning">Edit</a>
+    <form class="delete-form" action="/hacking/<%=post._id%>?_override=DELETE" method="POST" >
+        <button class="btn btn-danger">Delete</button>
+    </form>
 <% include partials/footer %>
