@@ -59,6 +59,7 @@ app.get("/hacking/:id", function(req,res){
         }
     });
 });
+
 //EDIT PAGE ROUTE
 app.get("/hacking/:id/edit", function(req,res){
     hposts.findById(req.params.id, function(err, post){
@@ -70,7 +71,7 @@ app.get("/hacking/:id/edit", function(req,res){
     });
 });
 //UPDATE ROUTE
-app.put("/hacking", function(req,res){
+app.put("/hacking/:id", function(req,res){
     hposts.findByIdAndUpdate(req.params.id, req.body.post, function(err, post){
         if(err){
             console.log(err);
@@ -80,15 +81,8 @@ app.put("/hacking", function(req,res){
     });
 });
 //GET DELETE FORM
-app.get("/hacking/delete", function(req,res){
-    console.log("get request made");
-    hposts.find({}, function(err, post){
-        if(err){
-            console.log(err);
-        }else{
-            res.render("deleteform", {post: post});
-        }
-    });
+app.get("/hacking/remove", function(req,res){
+    res.render("deleteform");
 });
 //DELETE ROUTE
 app.delete("/hacking/:id", function(req,res){
