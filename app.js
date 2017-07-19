@@ -76,7 +76,7 @@ app.put("/hacking/:id", function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect("hacking");
+            res.redirect("/hacking");
         }
     });
 });
@@ -90,7 +90,7 @@ app.delete("/hacking/:id", function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect("hacking");
+            res.redirect("/hacking");
         }
     });
 });
