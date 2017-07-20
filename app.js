@@ -3,32 +3,32 @@ var express         = require("express"),
     app             = express(),
     bodyparser      = require("body-parser"),
     mongoose        = require("mongoose"),
-    methodOverride  = require("method-override"),
-    hposts          = require("./models/hackingposts.js");
+    methodOverride  = require("method-override");
     
-var hackingRoutes               = require("./routes/hacking"),
+var algRoutes                   = require("./routes/algroutes"),
+    artRoutes                   = require("./routes/artroutes"),
+    astRoutes                   = require("./routes/astroutes"),
+    bioRoutes                   = require("./routes/bioroutes"),
+    calcRoutes                  = require("./routes/calcroutes"),
+    chemRoutes                  = require("./routes/chemroutes"),
+    civRoutes                   = require("./routes/civroutes"),
+    ecoRoutes                   = require("./routes/ecoroutes"),
+    eurohisRoutes               = require("./routes/eurohisroutes"),
+    geoRoutes                   = require("./routes/georoutes"),
+    hardwareRoutes              = require("./routes/hardwareroutes"),
+    linalgRoutes                = require("./routes/linalgroutes"),
+    physRoutes                  = require("./routes/physicsroutes"),
     programmingRoutes           = require("./routes/programmingroutes"),
-    hardwareRoutes              = require("./routes/hardwareroutes");
-    // physRoutes                  = require("./routes/physicsroutes"),
-    // chemRoutes                  = require("./routes/chemroutes"),
-    // bioRoutes                   = require("./routes/bioroutes"),
-    // astRoutes                   = require("./routes/astroutes"),
-    // algRoutes                   = require("./routes/algroutes"),
-    // geoRoutes                   = require("./routes/georoutes"),
-    // linalgRoutes                = require("./routes/linalgroutes"),
-    // trigRoutes                  = require("./routes/trigroutes"),
-    // statRoutes                  = require("./routes/statroutes"),
-    // calcRoutes                  = require("./routes/calcroutes"),
-    // worldhisRoutes              = require("./routes/worldhisroutes"),
-    // eurohisRoutes               = require("./routes/eurohsiroutes"),
-    // ushisRoutes                 = require("./routes/ushisroutes"),
-    // civRoutes                   = require("./routes/civroutes"),
-    // ecoRoutes                   = require("./routes/ecoroutes"),
-    // artRoutes                   = require("./routes/artroutes");
+    statRoutes                  = require("./routes/statroutes"),
+    trigRoutes                  = require("./routes/trigroutes"),
+    ushisRoutes                 = require("./routes/ushisroutes"),
+    hackingRoutes               = require("./routes/hacking"),
+    worldhisRoutes              = require("./routes/worldhisroutes");
     
 //Connecting to our local database
-mongoose.connect("mongodb://localhost/hreference");
 
+var url = process.env.DATABASEURL || "mongodb://localhost/hreference";
+mongoose.connect(url);
 //Configuring Body-parser
 app.use(bodyparser.urlencoded({extended: true}));
 //Configuring Method-override
@@ -39,9 +39,27 @@ app.set("view engine", "ejs");
 app.use(express.static('public'));
 // app.use(express.static(__dirname +"public"));
 
-
 app.use("/hacking", hackingRoutes);
+app.use("/european-history", eurohisRoutes);
 app.use("/programming", programmingRoutes);
+app.use("/physics", physRoutes);
+app.use("/chemistry", chemRoutes);
+app.use("/biology", bioRoutes);
+app.use("/astronomy", astRoutes);
+app.use("/algebra", algRoutes);
+app.use("/geometry", geoRoutes);
+app.use("/linear-algebra", linalgRoutes);
+app.use("/trigonometry", trigRoutes);
+app.use("/statistics", statRoutes);
+app.use("/calculus", calcRoutes);
+app.use("/world-history", worldhisRoutes);
+app.use("/european-history", eurohisRoutes);
+app.use("/us-history", ushisRoutes);
+app.use("/civics", civRoutes);
+app.use("/economy", ecoRoutes);
+app.use("/art", artRoutes);
+app.use("/hardware", hardwareRoutes);
+
 //index route
 app.get("/", function(req,res){
     res.render("index");

@@ -1,0 +1,24 @@
+<% include ../partials/linheader %>
+
+<% post.forEach(function(post){ %>
+            
+            <div class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><a href="/hacking/<%=post._id%>"><%= post.title %></a></h4>
+                    </div>
+                    <div class="panel-body">
+                        <p><%-post.description.substring(0, 100)%>...</p>
+                    </div>
+                    <div class="container readmore">
+                        <a class="btn btn-primary" href="/hacking/<%= post._id %>">
+                            Read More
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+<% }); %>
+
+<% include ../partials/footer %>
+

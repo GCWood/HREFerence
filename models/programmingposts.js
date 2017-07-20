@@ -3,7 +3,9 @@ var express = require("express"),
     
 var programmingSchema = new mongoose.Schema({
     title: String,
-    description: String
+    description: String,
+    time: String,
+    
 });
 
 module.exports = mongoose.model("pposts", programmingSchema);
