@@ -4,14 +4,25 @@ var express = require("express"),
 
 //Hacking route
 router.get("/", function(req,res){
+    console.log(req.session);
     hposts.find({}, function(err, posts){
         if(err){
             console.log(err);
         }else{
-            res.render("hacking", {post: posts});
+            res.render("hacking/index", {post: posts});
         }
     });
 });
+// //DELETE SHit
+// router.get("/delete", function(req,res){
+//     hposts.find({}, function(err, posts){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             res.render("hacking/deletemulti", {post: posts});
+//         }
+//     });    
+// });
 // //DELETE FORM
 // router.get("/delete", function(req,res){
 //     hposts.find({}, function(err, posts){
@@ -23,10 +34,6 @@ router.get("/", function(req,res){
 //     });
 
 // });
-//CREATE PAGE ROUTE
-router.get("/add", function(req,res){
-    res.render("add");
-});
 //CREATE ROUTE
 router.post("/", function(req,res){
     console.log(req.body.title);
@@ -50,18 +57,7 @@ router.get("/:id", function(req,res){
             console.log(err);
         }else{
             console.log(post);
-            res.render("show", {post: post});
-        }
-    });
-});
-
-//EDIT PAGE ROUTE
-router.get("/:id/edit", function(req,res){
-    hposts.findById(req.params.id, function(err, post){
-        if(err){
-            console.log(err);
-        }else{
-            res.render("edit", {post: post});
+            res.render("hacking/show", {post: post});
         }
     });
 });
@@ -71,13 +67,14 @@ router.put("/:id", function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.redirect("/hacking");
+            res.redirect("/hacking/" + req.params.id);
         }
     });
 });
+
 //DELETE ROUTE
 router.delete("/:id", function(req,res){
-    hposts.findByIdAndRemove(req.params.id, function(err, post){
+    hposts.findByIdAndRemove(req.params.id, function(err, posts){
         if(err){
             console.log(err);
         }else{

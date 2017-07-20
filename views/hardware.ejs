@@ -1,6 +1,14 @@
-<% include partials/header %>
+<% include partials/hacheader %>
 
+<% post.forEach(function(post){ %>
 
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <h1><a href="/hacking/<%=post._id%>"><%= post.title %></a></h1>
+                    <p><%= post.description %></p> 
+                </div>            
+            </div>
+<% }); %>
     
 <% include partials/footer %>
 

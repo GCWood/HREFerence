@@ -1,10 +1,14 @@
-.navbar{
-    background-color: black;
-    border-color: #030033;
-}
+
 .delete-form{
     display: inline;
 }
-body{
-    background: black;
+.title-text{
+    font-size: 80px;
+}
+.back{
+    margin-left:-15px;
+}
+.readmore{
+    margin-top: -15px;
+    margin-bottom: 10px;
 }
